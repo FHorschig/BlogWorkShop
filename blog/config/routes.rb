@@ -1,7 +1,8 @@
 Blog::Application.routes.draw do
 
   resources :posts
-
+  match 'post' => 'posts#single_post'
+  
   root :to => "home#index"
 
   # The priority is based upon order of creation:

@@ -2,7 +2,17 @@
 	<div class="container"><a class="navbar-brand">BlogName</a></div>
 </header>
 <section class="container">
-	<article class="well main-article"></article>
-	<nav class="well sidebar"></nav>
+	<article class="well" id="main_article"><%= @post.text %></article>
+
+	<% if !@sidebar_links.blank? %>
+		<nav class="well sidebar">
+		  <ul>
+		  <% for item in @sidebar_links %>
+		   	<li> <a onclick=<%= "loadPost("+item.id.to_s+")" %>><%= item.title %></a></li>
+		  <% end %>
+		  </ul>
+		</nav>
+	<% end %>
+
 </section>
 <footer class="container">(c) BlogWorkShop</footer>
